@@ -1,0 +1,8 @@
+{
+  "Should_Throw_On_Invalid_Token": [
+    [ "" ],
+    [ ":" ],
+    [ "1234567" ],
+    [ "INVALID:4TT8bAc8GHUspu3ERYn-KGcvsvGB9u_n4ddy" ]
+  ]
+}
