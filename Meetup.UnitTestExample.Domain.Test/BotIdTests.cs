@@ -12,6 +12,15 @@ namespace Meetup.UnitTestExample.Domain.Test
 
         }
 
+        [Fact]
+        public void Should_Throw_On_Null_Token()
+        {
+            ArgumentNullException exception = Assert.Throws<ArgumentNullException>(
+                () => new BotClient(null)
+            );
+            Assert.Equal("token", exception.ParamName);
+        }
+
         [Theory]
         [InlineData("1234567:4TT8bAc8GHUspu3ERYn-KGcvsvGB9u_n4ddy", 1234567)]
         [InlineData("9:jdsaghdfilghdfiugherh", 9)]
@@ -22,15 +31,6 @@ namespace Meetup.UnitTestExample.Domain.Test
         {
             var botClient = new BotClient(token);
             Assert.Equal(expectedId, botClient.BotId);
-        }
-
-        [Fact]
-        public void Should_Throw_On_Null_Token()
-        {
-            ArgumentNullException exception = Assert.Throws<ArgumentNullException>(
-                () => new BotClient(null)
-            );
-            Assert.Equal("token", exception.ParamName);
         }
 
         [Theory]
